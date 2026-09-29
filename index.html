@@ -1232,8 +1232,8 @@
         <p class="kicker">Frontline</p><span>Dana, GM at Lakeview, on her phone</span>
       </div>
       <div class="phone">
-        <div class="ph-bar"><span id="clock">10:12 PM</span><button class="link-btn" type="button" id="signal">Signal:
-            on</button></div>
+        <div class="ph-bar"><span id="clock">10:12 PM</span><button class="link-btn" type="button" id="signal">Demo ·
+            Signal: on</button></div>
         <div class="ph-body" id="phBody">
           <div class="ph-head">
             <div>
@@ -1329,9 +1329,11 @@
       <p class="kicker">Open questions</p>
       <h2>What I'd test before building this for real</h2>
       <dl class="dl">
-        <dt>Signal inside the walk-in</dt>
-        <dd>A walk-in cooler is an insulated metal box, so the phone may have no signal where the reading is taken. Logs
-          likely need to save offline and send later, with a visible "not sent yet" state.</dd>
+        <dt>Signal inside the walk-in (prototyped)</dt>
+        <dd>A walk-in cooler is an insulated metal box, so the phone may have no signal where the reading is taken. I
+          added a first pass: turn the signal off on the phone and log a reading. It saves locally, HQ doesn't see it
+          yet, and it sends when signal returns. Next I'd test whether managers notice the "not sent yet" state before
+          leaving the walk-in.</dd>
         <dt>Who is allowed to decide on discarding food</dt>
         <dd>I kept discard decisions with the owner. Brands may set that differently, so the permission should come from
           each brand's roles, not be fixed in the design.</dd>
@@ -1390,7 +1392,7 @@
         flash: null,
         online: true
       };
-      $('signal').textContent = 'Signal: on';
+      $('signal').textContent = 'Demo . Signal: on';
       closeSheet(true);
       $('alert').hidden = true;
       $('clock').textContent = '10:12 PM';
@@ -1692,7 +1694,7 @@
     $('scrim').addEventListener('click', () => { });
     $('signal').addEventListener('click', () => {
       S.online = !S.online;
-      $('signal').textContent = S.online ? 'Signal: on' : 'Signal: off';
+      $('signal').textContent = S.online ? 'Demo . Signal: on' : 'Demo . Signal: off';
       const t = S.tasks[0];
       if (S.online && t.state === 'queued') { t.state = 'open'; renderAll(); onLog(); }
     });
