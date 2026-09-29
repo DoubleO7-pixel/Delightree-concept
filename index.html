@@ -1232,7 +1232,7 @@
         <p class="kicker">Frontline</p><span>Dana, GM at Lakeview, on her phone</span>
       </div>
       <div class="phone">
-        <div class="ph-bar"><span id="clock">10:12 PM</span><button class="link-btn" type="button" id="signal">Demo ·
+        <div class="ph-bar"><span id="clock">10:12 PM</span><button class="link-btn" type="button" id="signal">Demo:
             Signal: on</button></div>
         <div class="ph-body" id="phBody">
           <div class="ph-head">
@@ -1392,7 +1392,7 @@
         flash: null,
         online: true
       };
-      $('signal').textContent = 'Demo . Signal: on';
+      $('signal').textContent = 'Demo: Signal: on';
       closeSheet(true);
       $('alert').hidden = true;
       $('clock').textContent = '10:12 PM';
@@ -1694,7 +1694,7 @@
     $('scrim').addEventListener('click', () => { });
     $('signal').addEventListener('click', () => {
       S.online = !S.online;
-      $('signal').textContent = S.online ? 'Demo . Signal: on' : 'Demo . Signal: off';
+      $('signal').textContent = S.online ? 'Demo: Signal: on' : 'Demo: Signal: off';
       const t = S.tasks[0];
       if (S.online && t.state === 'queued') { t.state = 'open'; renderAll(); onLog(); }
     });
